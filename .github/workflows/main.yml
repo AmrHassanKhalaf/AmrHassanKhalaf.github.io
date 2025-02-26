@@ -1,0 +1,14 @@
+name: Update README Stats
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # يتم التحديث يومياً في منتصف الليل
+  workflow_dispatch: # يتيح لك تشغيله يدويًا
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Update GitHub Stats
+        run: curl -X PURGE https://github-readme-stats.vercel.app/api
